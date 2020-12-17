@@ -12,20 +12,39 @@ struct ContentView: View {
     let rowTwo = ["phoebe", "rachel", "ross"]
     
     var body: some View {
-        VStack(spacing: 12){
-            HStack(spacing: 12){
-                ForEach(0 ..< rowOne.count){ item in
-                    ConnectionItem(imageName: rowOne[item])
-                }
-            }//HSTACK
-            .rotationEffect(.degrees(30))//HSTACK
+        ZStack{
+            Divider().rotationEffect(.degrees(30))
+            Divider().rotationEffect(.degrees(-30))
+            Divider().rotationEffect(.degrees(90))
             
             ConnectionItem(imageName: "yourname")
             
+            
             HStack(spacing: 12){
-                ForEach(0 ..< rowTwo.count){ item in
-                    ConnectionItem(imageName: rowTwo[item])
-                }
+                
+                ConnectionItem(imageName: "monica")
+                    .rotationEffect(.degrees(-30))
+                Spacer()
+                ConnectionItem(imageName: "ross")
+                    .rotationEffect(.degrees(-30))
+            }//HSTACK
+            .rotationEffect(.degrees(30))//HSTACK
+            
+            HStack {
+                ConnectionItem(imageName: "joey")
+                    .rotationEffect(.degrees(-90))
+                Spacer()
+                ConnectionItem(imageName: "chandler")
+                    .rotationEffect(.degrees(-90))
+            }//HSTACK
+            .rotationEffect(.degrees(90))
+            
+            HStack {
+                ConnectionItem(imageName: "rachel")
+                    .rotationEffect(.degrees(30))
+                Spacer()
+                ConnectionItem(imageName: "phoebe")
+                    .rotationEffect(.degrees(30))
             }//HSTACK
             .rotationEffect(.degrees(-30))
             
